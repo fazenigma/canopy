@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Culture Chain - The sovereign layer for humanity. Onchain analytics, governance, and cultural asset management.">
+    <meta name="description" content="Culture Chain - The sovereign layer for humanity.">
     <meta name="theme-color" content="#15803D">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
     <title>Culture Chain | Onchain Analytics & Culture</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,34 +35,14 @@
     <style>
         :root {
             --bg: #FAFDFB;
-            --bg-dark: #0A0F0D;
-            --fg: #0F1A14;
-            --fg-muted: #4B5E53;
             --accent-light: #A3E635;
             --accent-dark: #15803D;
-            --card: #FFFFFF;
-            --card-dark: #111916;
-            --border: #D1E7D8;
-            --border-dark: #1F2E26;
-        }
-        
-        * {
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
         }
         
         body {
             font-family: 'DM Sans', sans-serif;
             background: var(--bg);
-            color: var(--fg);
             overflow-x: hidden;
-        }
-        
-        .font-display {
-            font-family: 'Space Grotesk', sans-serif;
         }
         
         .logo-gradient {
@@ -92,217 +70,53 @@
             mask-composite: exclude;
             pointer-events: none;
         }
-        
-        .bg-mesh {
-            background-image: 
-                radial-gradient(at 20% 30%, rgba(163, 230, 53, 0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 70%, rgba(21, 128, 61, 0.1) 0px, transparent 50%),
-                radial-gradient(at 50% 50%, rgba(34, 197, 94, 0.05) 0px, transparent 70%);
-        }
-        
-        .grid-pattern {
-            background-image: 
-                linear-gradient(rgba(163, 230, 53, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(163, 230, 53, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-        }
-        
+
+        /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes pulse-glow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(163, 230, 53, 0.3);
-            }
-            50% {
-                box-shadow: 0 0 40px rgba(163, 230, 53, 0.5);
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes countUp {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        .animate-fade-in-up {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-        
-        .animate-fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
-        }
-        
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .animate-pulse-glow {
-            animation: pulse-glow 3s ease-in-out infinite;
-        }
-        
+        .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
         .stagger-1 { animation-delay: 0.1s; }
         .stagger-2 { animation-delay: 0.2s; }
         .stagger-3 { animation-delay: 0.3s; }
-        .stagger-4 { animation-delay: 0.4s; }
-        .stagger-5 { animation-delay: 0.5s; }
-        .stagger-6 { animation-delay: 0.6s; }
-        
+
         [data-reveal] {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition: all 0.6s ease-out;
         }
         
         [data-reveal].revealed {
             opacity: 1;
             transform: translateY(0);
         }
-        
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            html {
-                scroll-behavior: auto;
-            }
-        }
-        
+
         .btn-primary {
             background: linear-gradient(135deg, #A3E635 0%, #22C55E 100%);
-            color: #14532D;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, #22C55E 0%, #15803D 100%);
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-        
-        .btn-primary:hover::after {
-            opacity: 1;
-        }
-        
-        .btn-primary span {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .btn-secondary {
-            background: rgba(163, 230, 53, 0.1);
-            border: 1px solid rgba(163, 230, 53, 0.3);
-            color: #15803D;
             transition: all 0.2s ease;
         }
         
-        .btn-secondary:hover {
-            background: rgba(163, 230, 53, 0.2);
-            border-color: rgba(163, 230, 53, 0.5);
-        }
-        
-        .search-input:focus {
-            box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.3);
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(21, 128, 61, 0.1);
-        }
-        
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .mobile-menu.open {
-            transform: translateX(0);
-        }
-        
-        .stat-value {
-            background: linear-gradient(135deg, #0F1A14 0%, #1F2E26 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .chain-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 2px;
-        }
-        
-        .chain-link::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: linear-gradient(135deg, #A3E635, #15803D);
-            border-radius: 2px;
-            transform: rotate(45deg);
-        }
-        
-        .focus-ring:focus-visible {
-            outline: 2px solid #A3E635;
-            outline-offset: 2px;
-        }
-        
-        .tab-active {
-            background: linear-gradient(135deg, rgba(163, 230, 53, 0.2) 0%, rgba(21, 128, 61, 0.1) 100%);
-            border-color: rgba(163, 230, 53, 0.5);
-        }
-        
+        .btn-primary:hover { filter: brightness(1.05); }
+
         .network-dot {
             width: 8px;
             height: 8px;
             background: #22C55E;
             border-radius: 50%;
-            animation: pulse-glow 2s ease-in-out infinite;
+            box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
         }
     </style>
 </head>
 <body class="antialiased">
-    <!-- Skip Link -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-brand-green text-white px-4 py-2 rounded-lg focus-ring">
-        Skip to main content
-    </a>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100" role="navigation" aria-label="Main navigation">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 lg:h-20">
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-2 focus-ring rounded-lg" aria-label="Culture Chain Home">
+                <a href="#" class="flex items-center gap-2">
                     <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-lime to-brand-green flex items-center justify-center">
-                        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
                             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
                         </svg>
@@ -310,693 +124,93 @@
                     <span class="text-xl font-bold font-display logo-gradient">CultureChain</span>
                 </a>
                 
-                <!-- Desktop Navigation -->
-                <div class="hidden lg:flex items-center gap-1">
-                    <a href="#explorers" class="px-4 py-2 text-sm font-medium text-slate-600 hover:text-brand-green transition-colors rounded-lg hover:bg-slate-50 focus-ring">Explorers</a>
-                    <a href="#analytics" class="px-4 py-2 text-sm font-medium text-slate-600 hover:text-brand-green transition-colors rounded-lg hover:bg-slate-50 focus-ring">Analytics</a>
-                    <a href="#governance" class="px-4 py-2 text-sm font-medium text-slate-600 hover:text-brand-green transition-colors rounded-lg hover:bg-slate-50 focus-ring">Governance</a>
-                    <a href="#ecosystem" class="px-4 py-2 text-sm font-medium text-slate-600 hover:text-brand-green transition-colors rounded-lg hover:bg-slate-50 focus-ring">Ecosystem</a>
-                    <a href="#docs" class="px-4 py-2 text-sm font-medium text-slate-600 hover:text-brand-green transition-colors rounded-lg hover:bg-slate-50 focus-ring">Docs</a>
-                </div>
-                
-                <!-- Desktop Actions -->
-                <div class="hidden lg:flex items-center gap-3">
-                    <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 text-xs text-slate-500">
-                        <span class="network-dot"></span>
-                        <span>Mainnet</span>
-                    </div>
-                    <button id="wallet-btn" class="btn-secondary px-5 py-2.5 rounded-full text-sm font-semibold focus-ring">
-                        Connect Wallet
-                    </button>
-                    <button class="btn-primary px-5 py-2.5 rounded-full text-sm focus-ring">
-                        <span>Launch App</span>
-                    </button>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-slate-100 focus-ring" aria-label="Open menu" aria-expanded="false">
-                    <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl lg:hidden" aria-hidden="true">
-            <div class="flex flex-col h-full">
-                <div class="flex items-center justify-between p-4 border-b border-slate-100">
-                    <span class="text-lg font-bold font-display logo-gradient">Menu</span>
-                    <button id="close-menu-btn" class="p-2 rounded-lg hover:bg-slate-100 focus-ring" aria-label="Close menu">
-                        <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
-                    </button>
-                </div>
-                <nav class="flex-1 p-4 space-y-1">
-                    <a href="#explorers" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl focus-ring">Explorers</a>
-                    <a href="#analytics" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl focus-ring">Analytics</a>
-                    <a href="#governance" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl focus-ring">Governance</a>
-                    <a href="#ecosystem" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl focus-ring">Ecosystem</a>
-                    <a href="#docs" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl focus-ring">Docs</a>
-                </nav>
-                <div class="p-4 space-y-3 border-t border-slate-100">
-                    <button class="w-full btn-secondary px-5 py-3 rounded-xl text-sm font-semibold focus-ring">
-                        Connect Wallet
-                    </button>
-                    <button class="w-full btn-primary px-5 py-3 rounded-xl text-sm focus-ring">
-                        <span>Launch App</span>
-                    </button>
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="#analytics" class="text-sm font-medium text-slate-600 hover:text-brand-green">Analytics</a>
+                    <a href="#explorers" class="text-sm font-medium text-slate-600 hover:text-brand-green">Explorers</a>
+                    <button class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold text-forest">Launch App</button>
                 </div>
             </div>
         </div>
-        <div id="menu-overlay" class="fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity lg:hidden" aria-hidden="true"></div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center pt-20 bg-mesh grid-pattern overflow-hidden">
-        <!-- Decorative Elements -->
-        <div class="absolute top-1/4 left-10 w-72 h-72 bg-brand-lime/10 rounded-full blur-3xl animate-float"></div>
-        <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
-        
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="max-w-4xl mx-auto text-center">
-                <!-- Badge -->
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full gradient-border bg-white/50 backdrop-blur-sm mb-8 animate-fade-in-up opacity-0">
-                    <span class="w-2 h-2 bg-brand-green rounded-full animate-pulse"></span>
-                    <span class="text-sm font-medium text-slate-600">Built on Ethereum L2</span>
-                </div>
-                
-                <!-- Headline -->
-                <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-in-up opacity-0 stagger-1">
-                    The sovereign layer<br>
-                    for <span class="logo-gradient">humanity.</span>
-                </h1>
-                
-                <!-- Subheadline -->
-                <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto mb-10 animate-fade-in-up opacity-0 stagger-2">
-                    Where culture meets consensus. Track onchain analytics, govern cultural assets, and build the future of digital heritage.
-                </p>
-                
-                <!-- Search Bar -->
-                <div class="relative max-w-2xl mx-auto mb-6 animate-fade-in-up opacity-0 stagger-3">
-                    <div class="relative gradient-border rounded-2xl bg-white">
-                        <div class="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                            </svg>
-                        </div>
-                        <input 
-                            type="search" 
-                            id="search-input"
-                            placeholder="Search addresses, blocks, or cultural assets..." 
-                            class="search-input w-full pl-14 pr-32 py-4 rounded-2xl border-0 bg-transparent focus:outline-none text-slate-900 placeholder-slate-400"
-                            aria-label="Search addresses, blocks, or cultural assets"
-                        >
-                        <button class="absolute right-2 top-1/2 -translate-y-1/2 btn-primary px-6 py-2 rounded-xl text-sm font-semibold focus-ring">
-                            <span>Search</span>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Trending Tags -->
-                <div class="flex flex-wrap justify-center gap-2 text-sm text-slate-500 animate-fade-in-up opacity-0 stagger-4">
-                    <span class="text-slate-400">Trending:</span>
-                    <button class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors focus-ring">#VibrancyMetrics</button>
-                    <button class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors focus-ring">#LoyaltyIndices</button>
-                    <button class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors focus-ring">#ModularIntelligence</button>
+    <header class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full gradient-border bg-white mb-8 animate-fade-in-up">
+                <span class="network-dot"></span>
+                <span class="text-sm font-medium text-slate-600">Built on Ethereum L2</span>
+            </div>
+            <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up stagger-1">
+                The sovereign layer for <span class="logo-gradient">humanity.</span>
+            </h1>
+            <p class="text-xl text-slate-600 max-w-2xl mx-auto mb-10 animate-fade-in-up stagger-2">
+                Where culture meets consensus. Track onchain analytics and govern cultural assets.
+            </p>
+            
+            <div class="max-w-2xl mx-auto animate-fade-in-up stagger-3">
+                <div class="relative gradient-border rounded-2xl bg-white p-2 flex">
+                    <input type="text" placeholder="Search addresses..." class="w-full px-4 py-3 rounded-xl focus:outline-none">
+                    <button class="btn-primary px-8 py-3 rounded-xl font-bold text-brand-forest">Search</button>
                 </div>
             </div>
-        </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-            </svg>
         </div>
     </header>
 
-    <main id="main-content">
-        <!-- Live Stats Section -->
-        <section class="relative py-16 bg-gradient-to-b from-white to-slate-50/50" aria-labelledby="stats-heading">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 id="stats-heading" class="sr-only">Network Statistics</h2>
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-                    <div class="stat-card gradient-border rounded-2xl bg-white p-6 text-center card-hover" data-reveal>
-                        <p class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display stat-value mb-2" data-count="2847593">0</p>
-                        <p class="text-sm text-slate-500 font-medium">Total Transactions</p>
-                    </div>
-                    <div class="stat-card gradient-border rounded-2xl bg-white p-6 text-center card-hover" data-reveal>
-                        <p class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display stat-value mb-2" data-count="156784">0</p>
-                        <p class="text-sm text-slate-500 font-medium">Cultural Assets</p>
-                    </div>
-                    <div class="stat-card gradient-border rounded-2xl bg-white p-6 text-center card-hover" data-reveal>
-                        <p class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display stat-value mb-2" data-count="42156">0</p>
-                        <p class="text-sm text-slate-500 font-medium">Active Wallets</p>
-                    </div>
-                    <div class="stat-card gradient-border rounded-2xl bg-white p-6 text-center card-hover" data-reveal>
-                        <p class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display stat-value mb-2" data-count="2.4">0</p>
-                        <p class="text-sm text-slate-500 font-medium">Avg TPS</p>
-                    </div>
-                </div>
+    <section class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-8 rounded-2xl shadow-sm text-center" data-reveal>
+                <p class="text-4xl font-bold font-display mb-2 counter" data-target="2847593">0</p>
+                <p class="text-sm text-slate-500">Transactions</p>
             </div>
-        </section>
-
-        <!-- Features Section -->
-        <section id="analytics" class="py-20 lg:py-32 bg-mesh" aria-labelledby="features-heading">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-3xl mx-auto text-center mb-16" data-reveal>
-                    <h2 id="features-heading" class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-                        Beyond the Transaction
-                    </h2>
-                    <p class="text-lg text-slate-600">
-                        In a landscape where data often feels cold and liquidity feels transient, Culture Chain emerges as a sovereign digital ecosystem where humanity meets the hyper-structure.
-                    </p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                    <!-- Feature Cards -->
-                    <article class="feature-card gradient-border rounded-2xl bg-white p-8 card-hover" data-reveal>
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-lime/20 to-brand-green/20 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-slate-900 mb-3">Onchain Transparency</h3>
-                        <p class="text-slate-600 leading-relaxed">Integrating advanced analytics as a native utility, allowing every user to visualize the "pulse" of the network in real-time.</p>
-                    </article>
-                    
-                    <article class="feature-card gradient-border rounded-2xl bg-white p-8 card-hover" data-reveal>
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-lime/20 to-brand-green/20 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-slate-900 mb-3">Modular Intelligence</h3>
-                        <p class="text-slate-600 leading-relaxed">A tech stack that ensures as the Ethereum L1 scales, the Culture Chain ecosystem inherits exponential growth.</p>
-                    </article>
-                    
-                    <article class="feature-card gradient-border rounded-2xl bg-white p-8 card-hover" data-reveal>
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-lime/20 to-brand-green/20 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-slate-900 mb-3">Community Governance</h3>
-                        <p class="text-slate-600 leading-relaxed">Participate in shaping the future of cultural preservation through transparent, onchain voting mechanisms.</p>
-                    </article>
-                    
-                    <article class="feature-card gradient-border rounded-2xl bg-white p-8 card-hover" data-reveal>
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-lime/20 to-brand-green/20 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-slate-900 mb-3">Heritage Security</h3>
-                        <p class="text-slate-600 leading-relaxed">Military-grade encryption protects cultural assets, ensuring permanence for generations to come.</p>
-                    </article>
-                    
-                    <article class="feature-card gradient-border rounded-2xl bg-white p-8 card-hover" data-reveal>
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-lime/20 to-brand-green/20 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-slate-900 mb-3">Lightning Settlement</h3>
-                        <p class="text-slate-600 leading-relaxed">Sub-second finality with minimal gas fees, making cultural transactions accessible to everyone.</p>
-                    </article>
-                    
-                    <article class="feature-card gradient-border rounded-2xl bg-white p-8 card-hover" data-reveal>
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-lime/20 to-brand-green/20 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-slate-900 mb-3">Global Accessibility</h3>
-                        <p class="text-slate-600 leading-relaxed">Borderless access to cultural markets, connecting creators and collectors worldwide without intermediaries.</p>
-                    </article>
-                </div>
+            <div class="bg-white p-8 rounded-2xl shadow-sm text-center" data-reveal>
+                <p class="text-4xl font-bold font-display mb-2 counter" data-target="156784">0</p>
+                <p class="text-sm text-slate-500">Assets</p>
             </div>
-        </section>
-
-        <!-- Quote Section -->
-        <section class="py-20 lg:py-32 bg-gradient-to-br from-brand-forest via-brand-green to-green-800 relative overflow-hidden" aria-labelledby="quote-heading">
-            <div class="absolute inset-0 opacity-10">
-                <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <defs>
-                        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
-                        </pattern>
-                    </defs>
-                    <rect width="100" height="100" fill="url(#grid)"/>
-                </svg>
+            <div class="bg-white p-8 rounded-2xl shadow-sm text-center" data-reveal>
+                <p class="text-4xl font-bold font-display mb-2 counter" data-target="42156">0</p>
+                <p class="text-sm text-slate-500">Wallets</p>
             </div>
-            
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative" data-reveal>
-                <svg class="w-16 h-16 text-brand-lime/30 mb-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                </svg>
-                <blockquote id="quote-heading" class="font-display text-2xl sm:text-3xl lg:text-4xl font-medium text-white leading-relaxed mb-8">
-                    Culture Chain is the layer where Ethereum stops being just a ledger and starts being a home. We aren't just scaling transactions; we are scaling the capacity for human connection.
-                </blockquote>
-                <footer class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-brand-lime/20 flex items-center justify-center">
-                        <span class="text-brand-lime font-bold font-display">CC</span>
-                    </div>
-                    <div>
-                        <cite class="text-white font-medium not-italic">Culture Chain Foundation</cite>
-                        <p class="text-white/60 text-sm">Ethereum L2 Ecosystem</p>
-                    </div>
-                </footer>
-            </div>
-        </section>
-
-        <!-- Explorer Preview Section -->
-        <section id="explorers" class="py-20 lg:py-32 bg-slate-50/50" aria-labelledby="explorer-heading">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                    <div data-reveal>
-                        <span class="inline-block px-3 py-1 rounded-full bg-brand-lime/20 text-brand-green text-sm font-medium mb-4">Explorer</span>
-                        <h2 id="explorer-heading" class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-                            Track every cultural pulse
-                        </h2>
-                        <p class="text-lg text-slate-600 mb-8">
-                            Our block explorer provides unprecedented visibility into cultural asset movements, governance decisions, and community engagement metrics.
-                        </p>
-                        
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-lg bg-brand-green/10 flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-900">Real-time transaction tracking</h4>
-                                    <p class="text-slate-600 text-sm">Monitor cultural asset transfers as they happen across the network.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-lg bg-brand-green/10 flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-900">Cultural provenance verification</h4>
-                                    <p class="text-slate-600 text-sm">Trace the complete history of any cultural asset onchain.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-lg bg-brand-green/10 flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-900">Governance participation metrics</h4>
-                                    <p class="text-slate-600 text-sm">See how the community shapes the protocol's future.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="relative" data-reveal>
-                        <div class="gradient-border rounded-2xl bg-white p-6 shadow-xl">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                                    <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                                </div>
-                                <span class="text-xs text-slate-400 font-mono">explorer.culturechain.io</span>
-                            </div>
-                            
-                            <div class="space-y-4">
-                                <div class="p-4 rounded-xl bg-slate-50">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <span class="text-xs text-slate-500">Latest Block</span>
-                                        <span class="text-xs text-brand-green font-mono">2.3s ago</span>
-                                    </div>
-                                    <div class="flex items-center gap-3">
-                                        <span class="px-2 py-1 rounded bg-brand-lime/20 text-brand-green text-sm font-mono">#2,847,593</span>
-                                        <span class="text-sm text-slate-600">142 txns</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="grid grid-cols-2 gap-3">
-                                    <div class="p-3 rounded-xl bg-slate-50">
-                                        <span class="text-xs text-slate-500 block mb-1">Gas Price</span>
-                                        <span class="text-sm font-semibold text-slate-900">0.001 Gwei</span>
-                                    </div>
-                                    <div class="p-3 rounded-xl bg-slate-50">
-                                        <span class="text-xs text-slate-500 block mb-1">TPS</span>
-                                        <span class="text-sm font-semibold text-slate-900">2.4</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="p-4 rounded-xl border border-slate-200">
-                                    <span class="text-xs text-slate-500 block mb-2">Recent Transaction</span>
-                                    <div class="font-mono text-xs text-slate-700 truncate">0x7f8e...3a9c</div>
-                                    <div class="flex items-center gap-2 mt-2">
-                                        <span class="px-2 py-0.5 rounded bg-brand-lime/20 text-brand-green text-xs">Cultural Transfer</span>
-                                        <span class="text-xs text-slate-400">0.005 ETH</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Decorative -->
-                        <div class="absolute -z-10 -bottom-4 -right-4 w-full h-full rounded-2xl bg-gradient-to-br from-brand-lime/20 to-brand-green/20"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Ecosystem Section -->
-        <section id="ecosystem" class="py-20 lg:py-32" aria-labelledby="ecosystem-heading">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16" data-reveal>
-                    <h2 id="ecosystem-heading" class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-                        Growing Ecosystem
-                    </h2>
-                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-                        Connect with projects building the future of cultural infrastructure on Culture Chain.
-                    </p>
-                </div>
-                
-                <!-- Tabs -->
-                <div class="flex flex-wrap justify-center gap-2 mb-12" role="tablist" aria-label="Ecosystem categories">
-                    <button role="tab" aria-selected="true" class="tab-btn px-5 py-2.5 rounded-full text-sm font-medium border border-slate-200 bg-white hover:border-brand-lime/50 transition-colors focus-ring tab-active" data-tab="all">
-                        All Projects
-                    </button>
-                    <button role="tab" aria-selected="false" class="tab-btn px-5 py-2.5 rounded-full text-sm font-medium border border-slate-200 bg-white hover:border-brand-lime/50 transition-colors focus-ring" data-tab="defi">
-                        DeFi
-                    </button>
-                    <button role="tab" aria-selected="false" class="tab-btn px-5 py-2.5 rounded-full text-sm font-medium border border-slate-200 bg-white hover:border-brand-lime/50 transition-colors focus-ring" data-tab="nft">
-                        NFTs
-                    </button>
-                    <button role="tab" aria-selected="false" class="tab-btn px-5 py-2.5 rounded-full text-sm font-medium border border-slate-200 bg-white hover:border-brand-lime/50 transition-colors focus-ring" data-tab="dao">
-                        DAOs
-                    </button>
-                    <button role="tab" aria-selected="false" class="tab-btn px-5 py-2.5 rounded-full text-sm font-medium border border-slate-200 bg-white hover:border-brand-lime/50 transition-colors focus-ring" data-tab="infra">
-                        Infrastructure
-                    </button>
-                </div>
-                
-                <!-- Projects Grid -->
-                <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Projects will be rendered by JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="py-20 lg:py-32 bg-mesh grid-pattern" aria-labelledby="cta-heading">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-reveal>
-                <h2 id="cta-heading" class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-                    Ready to build on <span class="logo-gradient">Culture Chain</span>?
-                </h2>
-                <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
-                    Join thousands of developers and creators shaping the future of onchain culture. Start building in minutes with our comprehensive documentation.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#" class="btn-primary px-8 py-4 rounded-xl text-base font-semibold focus-ring inline-flex items-center justify-center gap-2">
-                        <span>Start Building</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="btn-secondary px-8 py-4 rounded-xl text-base font-semibold focus-ring inline-flex items-center justify-center gap-2">
-                        <span>Read Documentation</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-16 lg:py-20" role="contentinfo">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
-                <div class="col-span-2 lg:col-span-1">
-                    <a href="#" class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-lime to-brand-green flex items-center justify-center">
-                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-                            </svg>
-                        </div>
-                        <span class="text-xl font-bold font-display">CultureChain</span>
-                    </a>
-                    <p class="text-slate-400 text-sm mb-4">
-                        The sovereign layer for humanity. Building the future of onchain culture.
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <a href="#" class="w-10 h-10 rounded-lg bg-slate-800 hover:bg-slate-700 flex items-center justify-center transition-colors focus-ring" aria-label="Twitter">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-lg bg-slate-800 hover:bg-slate-700 flex items-center justify-center transition-colors focus-ring" aria-label="Discord">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-lg bg-slate-800 hover:bg-slate-700 flex items-center justify-center transition-colors focus-ring" aria-label="GitHub">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="font-semibold text-white mb-4">Product</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-slate-400 hover:text-brand-lime transition-colors text-sm focus-ring rounded">Explorer</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-brand-lime transition-colors text-sm focus-ring rounded">Analytics</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-brand-lime transition-colors text-sm focus-ring rounded">Governance</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-brand-lime transition-colors text-sm focus-ring rounded">Bridge</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="font-semibold text-white mb-4">Developers</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-slate-400 hover:text-brand-lime transition-colors text-sm focus-ring rounded">Documentation</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-brand-lime transition-colors text-sm focus-ring rounded">GitHub</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-brand-lime transition-colors text-sm focus-ring rounded">Bug Bounty</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-brand-lime transition-colors text-sm focus-ring rounded">Grants</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="font-semibold text-white mb-4">Community</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-slate-400 hover:text-brand-lime transition-colors text-sm focus-ring rounded">Discord</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-brand-lime transition-colors text-sm focus-ring rounded">Twitter</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-brand-lime transition-colors text-sm focus-ring rounded">Forum</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-brand-lime transition-colors text-sm focus-ring rounded">Blog</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="font-semibold text-white mb-4">Legal</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-slate-400 hover:text-brand-lime transition-colors text-sm focus-ring rounded">Privacy Policy</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-brand-lime transition-colors text-sm focus-ring rounded">Terms of Service</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-brand-lime transition-colors text-sm focus-ring rounded">Cookie Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p class="text-slate-500 text-sm">2025 Culture Chain. All rights reserved.</p>
-                <p class="text-slate-500 text-sm">Powered by Ethereum L2 Technology</p>
+            <div class="bg-white p-8 rounded-2xl shadow-sm text-center" data-reveal>
+                <p class="text-4xl font-bold font-display mb-2 counter" data-target="2.4">0</p>
+                <p class="text-sm text-slate-500">Avg TPS</p>
             </div>
         </div>
-    </footer>
+    </section>
 
     <script>
-        // Project Data
-        const projects = [
-            { name: 'CultureSwap', category: 'defi', description: 'Decentralized exchange for cultural tokens', icon: '⟠' },
-            { name: 'Heritage Vaults', category: 'nft', description: 'Secure NFT storage for cultural artifacts', icon: '◈' },
-            { name: 'CultureDAO', category: 'dao', description: 'Community governance for cultural funding', icon: '◉' },
-            { name: 'Indexer API', category: 'infra', description: 'High-performance indexing infrastructure', icon: '⬡' },
-            { name: 'ArtFi', category: 'defi', description: 'Fractional ownership of cultural assets', icon: '◇' },
-            { name: 'Legacy Protocol', category: 'nft', description: 'Onchain provenance for physical art', icon: '⬢' },
-        ];
-
-        // Initialize DOM Elements
-        let mobileMenu = null;
-        let menuOverlay = null;
-        let mobileMenuBtn = null;
-        let closeMenuBtn = null;
-        let tabBtns = null;
-        let projectsGrid = null;
-
-        // DOM Ready
-        document.addEventListener('DOMContentLoaded', function() {
-            // Cache DOM elements
-            mobileMenu = document.getElementById('mobile-menu');
-            menuOverlay = document.getElementById('menu-overlay');
-            mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            closeMenuBtn = document.getElementById('close-menu-btn');
-            tabBtns = document.querySelectorAll('.tab-btn');
-            projectsGrid = document.getElementById('projects-grid');
-
-            // Initialize all features
-            initMobileMenu();
-            initScrollReveal();
-            initCountUp();
-            initTabs();
-            initSearch();
-            initWalletButton();
-            renderProjects('all');
-        });
-
-        // Mobile Menu
-        function initMobileMenu() {
-            if (!mobileMenu || !menuOverlay || !mobileMenuBtn || !closeMenuBtn) return;
-
-            function openMenu() {
-                mobileMenu.classList.add('open');
-                menuOverlay.classList.remove('opacity-0', 'pointer-events-none');
-                mobileMenuBtn.setAttribute('aria-expanded', 'true');
-                mobileMenu.setAttribute('aria-hidden', 'false');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeMenu() {
-                mobileMenu.classList.remove('open');
-                menuOverlay.classList.add('opacity-0', 'pointer-events-none');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                mobileMenu.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
-            }
-
-            mobileMenuBtn.addEventListener('click', openMenu);
-            closeMenuBtn.addEventListener('click', closeMenu);
-            menuOverlay.addEventListener('click', closeMenu);
-
-            // Close on escape
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
-                    closeMenu();
+        // Intersection Observer for Reveal Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    
+                    // Trigger counter if exists
+                    const counter = entry.target.querySelector('.counter');
+                    if(counter) animateCounter(counter);
                 }
             });
+        }, { threshold: 0.1 });
 
-            // Close on link click
-            mobileMenu.querySelectorAll('a').forEach(function(link) {
-                link.addEventListener('click', closeMenu);
-            });
-        }
+        document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
 
-        // Scroll Reveal
-        function initScrollReveal() {
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            
-            if (prefersReducedMotion) {
-                document.querySelectorAll('[data-reveal]').forEach(function(el) {
-                    el.classList.add('revealed');
-                });
-                return;
-            }
+        // Counter Logic
+        function animateCounter(el) {
+            const target = +el.getAttribute('data-target');
+            const count = +el.innerText;
+            const speed = 2000 / target; 
 
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('revealed');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
+            const updateCount = () => {
+                const current = +el.innerText.replace(/,/g, '');
+                const increment = target / 100;
 
-            document.querySelectorAll('[data-reveal]').forEach(function(el) {
-                observer.observe(el);
-            });
-        }
-
-        // Count Up Animation
-        function initCountUp() {
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            
-            const statCards = document.querySelectorAll('.stat-card');
-            
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        const valueEl = entry.target.querySelector('[data-count]');
-                        if (valueEl) {
-                            const target = parseFloat(valueEl.getAttribute('data-count'));
-                            const isDecimal = target % 1 !== 0;
-                            
-                            if (prefersReducedMotion) {
-                                valueEl.textContent = isDecimal ? target.toFixed(1) : formatNumber(target);
-                            } else {
-                                animateCount(valueEl, target, isDecimal);
-                            }
-                        }
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            statCards.forEach(function(card) {
-                observer.observe(card);
-            });
-        }
-
-        function animateCount(el, target, isDecimal) {
-            const duration = 2000;
-            const start = 0;
-            const startTime = performance.now();
-
-            function update(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const easeOut = 1 - Math.pow(1 - progress, 3);
-                const current = start + (target - start) * easeOut;
-
-                if (isDecimal) {
-                    el.textContent = current.toFixed(1);
+                if (current < target) {
+                    el.innerText = Math.ceil(current + increment).toLocaleString();
+                    setTimeout(updateCount, 20);
                 } else {
-                    el.textContent = formatNumber(Math.floor(current));
+                    el.innerText = target.toLocaleString();
                 }
-
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                }
-            }
-
-            requestAnimationFrame(update);
+            };
+            updateCount();
         }
-
-        function formatNumber(num) {
-            if (num >= 1000000) {
-                return (num / 1000000).toFixed(1) + 'M';
-            }
-            if (num >= 1000) {
-                return num.toLocaleString();
-            }
-            return num.toString();
-        }
-
-        // Tabs
-        function initTabs() {
-            if (!tabBtns) return;
-            
-            tabBtns.forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    // Update active state
-                    tabBtns.forEach(function(b) {
-                        b.classList.remove('tab-active');
-                        b.setAttribute('aria-selected', 'false');
-                    });
-                    btn.classList.add('tab-active');
-                    btn.setAttribute('aria-selected', 'true');
-
-                    // Filter projects
+    </script>
+</body>
+</html>
